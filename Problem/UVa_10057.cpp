@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    while (cin >> n) {
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) cin >> a[i];
+        sort(a.begin(), a.end());
+        int mid1 = a[(n - 1) / 2], mid2 = a[n / 2];
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] == mid1 || a[i] == mid2) count++;
+        }
+        cout << mid1 << " " << count << " " << (mid2 - mid1 + 1) << "\n";
+    }
+    return 0;
+}
